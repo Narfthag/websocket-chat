@@ -15,5 +15,14 @@ app.use(express.static('public'));
 // socket configuracion
 var io = socket(server);
 io.on('connection', (socket) => {
-  console.log(`made socket connection with id ${socket.id}`);
+  //console.log(`made socket connection with id ${socket.id}`);
+  
+  socket.on('chat', (data) => {
+    io.sockets.emit('chat', data);
+  });
+
+  socket.on('typing', (data) => {
+    socket.broadcast.emit('typing', data.handle);
+  });
+
 });
