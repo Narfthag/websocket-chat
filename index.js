@@ -3,7 +3,7 @@ var socket = require('socket.io');
 
 // App setup
 var app = express();
-var port = 4000;
+var port = process.env.PORT_N | 4000;
 var server = app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
@@ -15,7 +15,7 @@ app.use(express.static('public'));
 // socket configuracion
 var io = socket(server);
 io.on('connection', (socket) => {
-  //console.log(`made socket connection with id ${socket.id}`);
+  console.log(`made socket connection with id ${socket.id}`);
   
   socket.on('chat', (data) => {
     io.sockets.emit('chat', data);
