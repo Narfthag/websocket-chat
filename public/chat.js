@@ -1,6 +1,6 @@
 // Hacer conexion
 
-var socket = io.connect('http://localhost:4000'); // Cambiar de ip 
+var socket = io.connect('https://websocket-alexvb.herokuapp.com/'); // Cambiar de ip 
 
 var message  = document.getElementById('message');
 var handle   = document.getElementById('handle');
