@@ -1,6 +1,6 @@
-// Hacer conexion
 
-var socket = io.connect('https://websocket-alexvb.herokuapp.com/'); // Cambiar de ip 
+// Hacer conexion
+var socket = io.connect(window.location.hostname); // Cambiar de ip 
 
 var message  = document.getElementById('message');
 var handle   = document.getElementById('handle');
@@ -21,8 +21,8 @@ message.addEventListener('keypress', function (){
 
 // Escuchando los eventos
 socket.on('chat', function (data) {
-    output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + "</p>"
-    feedback.innerHTML = ''
+    output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + "</p>";
+    feedback.innerHTML = '';
 });
 
 socket.on('typing', function (data) {
