@@ -1,1 +1,1 @@
-web: PORT_N=80 node --optimize_for_size --max_old_space_size=460 --gc_interval=100 index.js
+web: PORT_N=443 node --optimize_for_size --max_old_space_size=460 --gc_interval=100 index.js
